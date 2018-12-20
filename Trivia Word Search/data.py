@@ -1,5 +1,18 @@
-main_menu = "WELCOME TO PYTHON TRIVIA WORDSEARCH THE GAME\nby: Josh Bothell\nPress Enter to continue"
+main_menu = """
+ __        _____  ____  ____    ____  _____    _    ____   ____ _   _      
+ \ \      / / _ \|  _ \|  _ \  / ___|| ____|  / \  |  _ \ / ___| | | |     
+  \ \ /\ / / | | | |_) | | | | \___ \|  _|   / _ \ | |_) | |   | |_| |     
+   \ V  V /| |_| |  _ <| |_| |  ___) | |___ / ___ \|  _ <| |___|  _  |     
+  __\_/\_/ _\___/|_| \_\____/  |____/|_____/_/___\_\_|_\_\\____|_| |_|_    
+ |  _ \ \ / /_   _| | | |/ _ \| \ | | |_   _|  _ \|_ _\ \   / /_ _|  / \   
+ | |_) \ V /  | | | |_| | | | |  \| |   | | | |_) || | \ \ / / | |  / _ \  
+ |  __/ | |   | | |  _  | |_| | |\  |   | | |  _ < | |  \ V /  | | / ___ \ 
+ |_|    |_|   |_| |_| |_|\___/|_| \_|   |_| |_| \_\___|  \_/  |___/_/   \_\
+                                                                           
 
+                            BY: JOSH BOTHELL
+                            
+    Press enter to continue"""
 trivia_1 = "Number with a decimal: "
 answer_1 = "float"
 
@@ -60,4 +73,4 @@ length_8 = len(answer_8)
 length_9 = len(answer_9)
 length_10 = len(answer_10)
 
-enter_pos = "Enter the index position of"
+enter_pos = "Enter the index position (with a comma after each number INCLUDING THE LAST NUMBER) of"
