@@ -1,0 +1,25 @@
+Term 2 Python Quiz
+DATA TYPES
+A number with a decimal is a:
+A) String
+B) Big Number
+C) Float
+D) Integer
+C) Float
+In python a number that uses a decimal is refered to as a float, or floating point real value.
+DATA TYPES cont.
+A data type that has only a True or False state:
+A) A YorN Variable
+B) Boolean
+C) String
+D) Yeet
+B) Boolean
+A 'Boolean' Variable can only be True or False.
+DATA TYPES cont.
+A data type that is a sequence of characters:
+A) String
+B) Text
+C) MSG
+D) Alabama
+A) String
+A 'String' Variable stores a "string" of characters from one letter to an entire page:
