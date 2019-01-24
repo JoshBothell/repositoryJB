@@ -62,7 +62,7 @@ def advanced():
     print("Settings changed! The range is now", rangex, "and the number of attempts is", attempts)
     menu()
 def creditsx():
-    print("BY JOSH BOTHELL AND MATTHEW WALKER PREVENTED BY SUPERGROVER")
+    print("BY JOSH BOTHELL AND MATTHEW WALKER")
     menu()
 def quitx():
     exit()
