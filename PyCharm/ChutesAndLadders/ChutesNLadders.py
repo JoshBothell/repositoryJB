@@ -229,7 +229,7 @@ class Space(object):
 
 
 def ask_num(num1, num2):
-    num_input = "Enter a number between " + str(num1) + " and " + str(num2) +": "
+    num_input = "Enter a number between " + str(num1) + " and " + str(num2) + ": "
     while True:
         num = input(num_input)
         if num.isdigit() and int(num) in range(num1, num2+1):
