@@ -277,8 +277,8 @@ def main():
         winner = players[turn].win()
         if not winner:
             turn = switch_turn(num_players, turn)
-    winner_congrats()
-    input("Press enter to quit... ")
+    winner_congrats(winner)
 
 
 main()
+input("Press enter to quit... ")
