@@ -84,9 +84,6 @@ def battle(hand1, hand2, pot):
         temp_hand1.give(temp_hand1.cards[0], pot)
         temp_hand2.give(temp_hand2.cards[0], pot)
         winner = war(hand1, hand2, pot)
-    print(pot)
-    print(hand1)
-    print(hand2)
     return winner, pot
 
 
@@ -144,11 +141,19 @@ def main():
             random.shuffle(big_hand2.cards)
             x = 0
         win, pot = battle(big_hand1, big_hand2, pot)
+        print(pot)
         reward_winner(win, big_hand1, big_hand2, pot)
+        input("...")
+        for card in big_hand1.cards:
+            card.flip()
+        for card in big_hand2.cards:
+            card.flip()
         print(big_hand1)
         print(big_hand2)
-        print(pot)
-        input("...")
+        for card in big_hand1.cards:
+            card.flip()
+        for card in big_hand2.cards:
+            card.flip()
     if big_hand1.total > 0:
         print(big_hand1.name, "WINS!")
     elif big_hand2.total > 0:
