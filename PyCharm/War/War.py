@@ -5,7 +5,7 @@
 
 ######################################################################
 # imports
-import cards, games
+import cards, random
 
 
 ######################################################################
@@ -64,44 +64,63 @@ class WarHand(cards.Hand):
 def battle(hand1, hand2, pot):
     temp_hand1 = WarHand(hand1.name)
     temp_hand2 = WarHand(hand2.name)
-    hand1.give(hand1.cards[-1], temp_hand1)
-    hand2.give(hand2.cards[-1], temp_hand2)
+    hand1.give(hand1.cards[0], temp_hand1)
+    hand2.give(hand2.cards[0], temp_hand2)
     print(temp_hand1)
     print(temp_hand2)
     if temp_hand1.total > temp_hand2.total:
         winner = "1"
+        print(hand1.name, "wins!")
+        temp_hand1.give(temp_hand1.cards[0], pot)
+        temp_hand2.give(temp_hand2.cards[0], pot)
     elif temp_hand2.total > temp_hand1.total:
         winner = "2"
+        print(hand2.name, "wins!")
+        temp_hand1.give(temp_hand1.cards[0], pot)
+        temp_hand2.give(temp_hand2.cards[0], pot)
     else:
-        temp_hand1.give(temp_hand1[0], pot)
-        temp_hand2.give(temp_hand2[0], pot)
-        war(hand1, hand2, pot)
-        print(temp_hand1)
-        print(temp_hand2)
-    return winner
+        print("Time for a war!")
+        input("...")
+        temp_hand1.give(temp_hand1.cards[0], pot)
+        temp_hand2.give(temp_hand2.cards[0], pot)
+        winner = war(hand1, hand2, pot)
+    print(pot)
+    print(hand1)
+    print(hand2)
+    return winner, pot
 
 
 def war(hand1, hand2, pot):
-    for i in range(3):
-        hand1.give(hand1[0], pot)
-        for card in hand1:
-            card.flip()
-    for i in range(3):
-        hand2.give(hand2[0], pot)
-        for card in hand2:
-            card.flip()
-    battle(hand1, hand2, pot)
+    if len(hand1.cards) >= 4 and len(hand2.cards) >= 4:
+        for i in range(3):
+            hand1.give(hand1.cards[0], pot)
+        for i in range(3):
+            hand2.give(hand2.cards[0], pot)
+        winner, pot = battle(hand1, hand2, pot)
+        return winner
+    else:
+        if hand1.total >= 4:
+            winner = "1"
+        else:
+            winner = "2"
+        return winner
 
 
 def reward_winner(winner, hand1, hand2, pot):
     if winner == "1":
-        for card in pot.cards:
-            hand1.cards.append(card)
-            pot.cards.remove(card)
-    if winner == "2":
-        for card in pot.cards:
-            hand2.cards.append(card)
-            pot.cards.remove(card)
+        print(hand1.name, "receives the pot.")
+        for i in range(len(pot.cards)):
+            for card in pot.cards:
+                hand1.cards.append(card)
+                pot.cards.remove(card)
+    elif winner == "2":
+        print(hand2.name, "receives the pot.")
+        for i in range(len(pot.cards)):
+            for card in pot.cards:
+                hand2.cards.append(card)
+                pot.cards.remove(card)
+    else:
+        print("something wrong")
 
 
 def main():
@@ -117,8 +136,24 @@ def main():
     big_hands.append(big_hand1)
     big_hands.append(big_hand2)
     first_deck.deal(big_hands, 26)
+    x = 0
     while big_hand1.total > 0 and big_hand2.total > 0:
-        battle(big_hand1, big_hand2, pot)
+        x += 1
+        if x == 20:
+            random.shuffle(big_hand1.cards)
+            random.shuffle(big_hand2.cards)
+            x = 0
+        win, pot = battle(big_hand1, big_hand2, pot)
+        reward_winner(win, big_hand1, big_hand2, pot)
+        print(big_hand1)
+        print(big_hand2)
+        print(pot)
+        input("...")
+    if big_hand1.total > 0:
+        print(big_hand1.name, "WINS!")
+    elif big_hand2.total > 0:
+        print(big_hand2.name, "WINS!")
+
 
 
 main()
