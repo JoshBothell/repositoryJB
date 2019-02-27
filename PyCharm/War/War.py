@@ -14,6 +14,7 @@ import cards, random
 class WarCard(cards.Card):
     """A card for the game war."""
 
+    # Property of card that returns the shown value of the card
     @property
     def value(self):
         if self.is_face_up:
@@ -134,7 +135,9 @@ def main():
     big_hands.append(big_hand2)
     first_deck.deal(big_hands, 26)
     x = 0
+    total_rounds = 0
     while big_hand1.total > 0 and big_hand2.total > 0:
+        total_rounds += 1
         x += 1
         if x == 20:
             random.shuffle(big_hand1.cards)
@@ -158,6 +161,7 @@ def main():
         print(big_hand1.name, "WINS!")
     elif big_hand2.total > 0:
         print(big_hand2.name, "WINS!")
+    print("That game took", total_rounds, "rounds.")
 
 
 
