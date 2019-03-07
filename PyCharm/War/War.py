@@ -178,6 +178,7 @@ def main():
     elif big_hand2.total > 0:
         print(big_hand2.name, "WINS!")
     print("That game took", total_rounds, "rounds.")
+    input("Press enter to exit...")
 
 
 main()
