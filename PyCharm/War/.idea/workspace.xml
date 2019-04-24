@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b1c110e-3d83-49b0-a0a6-b2de805cd351" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/ButtonNew.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/Buttons.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/ClickerAddSubtract.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/ClickerCount.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/GridBoys.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SimpleGUI/Labels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../MadLib2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../MadLib2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Portfolio Term 2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Portfolio Term 2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/War.py" beforeDir="false" afterPath="$PROJECT_DIR$/War.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,17 +15,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/War.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
+            <state relative-caret-position="4320">
               <caret line="180" column="30" selection-start-line="180" selection-start-column="30" selection-end-line="180" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CritterCaretaker/Critter1.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
               <folding>
                 <element signature="e#41#54#0" expanded="true" />
               </folding>
@@ -46,17 +36,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
+            <state relative-caret-position="827">
               <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="504">
+              <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -78,10 +68,11 @@
       <list>
         <option value="$PROJECT_DIR$/PsuedoCode.txt" />
         <option value="$PROJECT_DIR$/War.py" />
+        <option value="$PROJECT_DIR$/cards.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -93,7 +84,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,10 +95,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -264,32 +255,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/War.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
+        <state relative-caret-position="4320">
           <caret line="180" column="30" selection-start-line="180" selection-start-column="30" selection-end-line="180" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../CritterCaretaker/Critter1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding>
             <element signature="e#41#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
         </state>
       </provider>
     </entry>
