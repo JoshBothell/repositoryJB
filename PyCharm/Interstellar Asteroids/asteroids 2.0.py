@@ -1,11 +1,7 @@
-# Parker Dean
-# Astroids 2.0
-# 5/6/19
-# major overhaul, final revision
+# JOSH BOTHELL
+# INTERSTELLAR ASTEROIDS
 
-
-# imports
-from superwires import games
+from superwires import games, color
 import random
 import math
 
@@ -55,12 +51,15 @@ class Asteroid(Wrapper):
     MEDIUM = 2
     LARGE = 3
     SPAWN = 2
+    POINTS = 30
     images = {SMALL: games.load_image("images/small_tie.png"),
               MEDIUM: games.load_image("images/med_tie.png"),
               LARGE: games.load_image("images/big_tie.png")}
     SPEED = 2
 
-    def __init__(self, x, y, size):
+    total = 0
+
+    def __init__(self, game, x, y, size):
         super(Asteroid, self).__init__(
             image=Asteroid.images[size],
             x=x,
@@ -68,11 +67,16 @@ class Asteroid(Wrapper):
             dx=random.choice([1, -1]) * Asteroid.SPEED * random.random() / size,
             dy=random.choice([1, -1]) * Asteroid.SPEED * random.random() / size)
         self.size = size
+        self.game = game
 
     def die(self):
+        Asteroid.total -= 1
+        self.game.score.value += int(Asteroid.POINTS / self.size)
+        self.game.score.right = games.screen.width - 10
+
         if self.size != Asteroid.SMALL:
             for i in range(Asteroid.SPAWN):
-                new_asteroid = Asteroid(x=self.x, y=self.y, size=self.size - 1)
+                new_asteroid = Asteroid(game=self.game, x=self.x, y=self.y, size=self.size - 1)
                 games.screen.add(new_asteroid)
         super(Asteroid, self).die()
 
@@ -84,10 +88,16 @@ class Ship(Collider):
     ROTATION_STEP = 5
     VELOCITY_STEP = .075
     MISSILE_DELAY = 25
+    MAX_VELOCITY = 10
 
-    def __init__(self, x, y):
+    def __init__(self, game, x, y):
         super(Ship, self).__init__(image=Ship.image, x=x, y=y)
         self.missile_wait = 0
+        self.game = game
+
+    def die(self):
+        self.game.end()
+        super(Ship, self).die()
 
     def update(self):
         super(Ship, self).update()
@@ -107,6 +117,8 @@ class Ship(Collider):
             self.dx += Ship.VELOCITY_STEP * math.sin(angle)
             self.dy += Ship.VELOCITY_STEP * -math.cos(angle)
 
+            self.dx = min(max(self.dx, -Ship.MAX_VELOCITY), Ship.MAX_VELOCITY)
+            self.dy = min(max(self.dy, -Ship.MAX_VELOCITY), Ship.MAX_VELOCITY)
         # fire missile if spacebar pressed
         if games.keyboard.is_pressed(games.K_SPACE) and self.missile_wait <= 0:
             new_missile = Missile(self.x, self.y, self.angle)
@@ -158,24 +170,81 @@ class Explosion(games.Animation):
         Explosion.sound.play()
 
 
+class Game(object):
+    def __init__(self):
+        self.score = games.Text(value=0,
+                                size=30,
+                                color=color.red,
+                                top=5,
+                                right=games.screen.width-10,
+                                is_collideable=False)
+        games.screen.add(self.score)
+
+        self.sound = games.load_sound("sounds/level.wav")
+
+        self.level = 0
+        self.create_ship()
+
+
+    def create_ship(self):
+        self.player = Ship(game = self,
+                           x=games.screen.width/2,
+                           y=games.screen.height/2)
+        games.screen.add(self.player)
+
+    def play(self):
+        games.music.load("Sounds/background_sound.wav")
+        games.music.play(-1)
+        bg_img = games.load_image("Images/background.png")
+        self.advance()
+        games.screen.background = bg_img
+        games.screen.mainloop()
+
+    def advance(self):
+        self.level += 1
+        BUFFER = 150
+        for i in range(self.level):
+            x_min = random.randrange(BUFFER)
+            y_min = BUFFER - x_min
+
+            x_distance = random.randrange(x_min, games.screen.width - x_min)
+            y_distance = random.randrange(y_min, games.screen.height - y_min)
+
+            x = self.player.x + x_distance
+            y = self.player.y + y_distance
+
+            y %= games.screen.width
+            y %= games.screen.height
+
+            new_asteroid = Asteroid(game=self, x=x, y=y, size = Asteroid.LARGE)
+            games.screen.add(new_asteroid)
+        level_message = games.Message(value="LEVEL "+str(self.level),
+                                      size=40,
+                                      color=color.dark_red,
+                                      x=games.screen.width/2,
+                                      y=games.screen.height/10,
+                                      lifetime=3*games.screen.fps,
+                                      is_collideable=False)
+        games.screen.add(level_message)
+        if self.level > 1:
+            self.sound.play()
+
+    def end(self):
+        end_message = games.Message(value="Game Over",
+                                    size=90,
+                                    color=color.red,
+                                    x=games.screen.width / 2,
+                                    y=games.screen.height / 2,
+                                    lifetime=5 * games.screen.fps,
+                                    after_death=games.screen.quit,
+                                    is_collideable=False)
+        games.screen.add(end_message)
+
+
 # main
 def main():
-    # loading data
-    bg_img = games.load_image("images/background.png")
-    # create objects
-    for i in range(4):
-        x = random.randrange(games.screen.width)
-        y = random.randrange(games.screen.height)
-        size = random.choice([Asteroid.SMALL, Asteroid.MEDIUM, Asteroid.LARGE])
-        new_asteroid = Asteroid(x=x, y=y, size=size)
-        games.screen.add(new_asteroid)
-    player = Ship(x=games.screen.width / 2, y=games.screen.height / 2)
-    # draw to screen
-    games.screen.background = bg_img
-    games.screen.add(player)
-    # set up game
-    # start main loop
-    games.screen.mainloop()
+    astrocrash = Game()
+    astrocrash.play()
 
 
 main()
